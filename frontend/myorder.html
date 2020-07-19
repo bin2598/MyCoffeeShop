@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+<div class="container col-md-5">
+    <h3 align="center" class="text-light">Today' Orders</h3>
+    <table class="table-sm text-info">
+
+        <tr>
+            <th>Item</th>
+            <th>Qnty</th>
+            <th>Price</th><th>Date</th><th>Total Amount</th>
+        </tr>
+    {% for i in o %}
+    <tr>
+        <td>{{i.item.Item_Name}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.item.Price}}</td>
+        <td>{{i.Date}}</td>
+        <td>{{i.Total_Price}}</td>
+        </tr>
+        <tr><td><a href="cancelorder/{{i.id}}"><button class="bg-warning" style="font-size:11px">Cancel Order</button></a></td></tr>
+
+    {% endfor %}
+
+     </table>
+</div><hr><hr>
+<div class="container col-sm-5">
+    <h4 class="text-light">Previous Orders</h4>
+
+    <table class="table-sm text-info">
+        <tr>
+            <th>Item</th>
+            <th>Qnty</th>
+            <th>Price</th><th>Date</th><th>Total Amount</th>
+        </tr>
+    {% for i in ord %}
+    <tr>
+        <td>{{i.item.Item_Name}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.item.Price}}</td>
+        <td>{{i.Date}}</td>
+        <td>{{i.Total_Price}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

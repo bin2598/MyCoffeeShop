@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body style="background-color:#0D6A5B;">
+<h3 align="center">Add New Admin</h3>
+<form action="us" method="post">
+    {% csrf_token %}
+  <div class="container col-lg-6">
+    <div class="form-group">
+        <label>First Name :</label>
+        <input class="form-control" type="text" name="fname" required>
+    </div>
+
+    <div class="form-group">
+        <label>Last Name :</label>
+        <input class="form-control" type="text" name="lname" required>
+    </div>
+
+    <div class="form-group">
+        <label>Email :</label>
+        <input class="form-control" type="email" name="email"required>
+    </div>
+
+    <div class="form-group">
+        <label>Username :</label>
+        <input class="form-control" type="text" name="uname" required>
+        <p class="text-danger">{{m}}</p>
+    </div>
+
+    <div class="form-group">
+        <label>Password :</label>
+        <input class="form-control" type="password" name="psw" required>
+    </div>
+
+      <button type="submit" class="btn btn-info">Done</button>
+
+  </div>
+
+</form>
+</body>
+</html>

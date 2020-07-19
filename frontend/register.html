@@ -1,0 +1,57 @@
+<!Doctype html>
+<html>
+<head>
+    <style>body {
+  background-color: linen;
+}</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+
+<div class="container col-md-4">
+    <h2 align="center">Register</h2>
+    <form action="db" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Name :</label>
+            <input type="text" class="form-control" placeholder="Enter Your Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label>Email :</label>
+            <input type="email"  class="form-control" placeholder="@gmail.com" name="email" required>
+            <p class="text-danger" align="center">{{m1}}</p>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth:</label>
+            <input type="date" class="form-control" placeholder="dd/mm/yyy" name="dob" required>
+        </div>
+        <div class="form-group">
+            <label>Gender :</label>  Male
+            <input type="radio" name="gender" value="male" required>    Female
+            <input type="radio" name="gender" value="female" required>
+        </div>
+        <div class="form-group">
+            <label>Mobile No.:</label>
+            <input type="number" class="form-control" placeholder="Mobile Number" name="mobile" maxlength="10" required>
+            <p class="text-danger">{{m2}}</p>
+        </div>
+        <div class="form-group">
+            <label>Username :</label>
+            <input type="text" class="form-control" placeholder="Enter a username" name="username" required>
+            <p class="text-danger">{{m3}}</p>
+        </div>
+        <div class="form-group">
+            <label>Password :</label>
+            <input type="password" class="form-control" placeholder="Enter a password" name="password" required>
+        </div>
+        <button class="btn btn-warning" type="submit">Register</button>
+    </form>
+<!--    <div><a href="h">Go to Home</a></div><div><a href="l">Go to LogIn</a></div>-->
+    <p align="center" style="font-size:13px"><a href="l">Already  member? Please  login</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container bg-dark text-light col-sm-6" style="margin:100px 200px 0px 300px">
+<h2 align="center"><b>Your Cart</b></h2><hr>
+
+
+    <table class="table text-warning">
+        {% for c in cart %}
+        <tr>
+            <th rowspan="2" style="font-size:20px"><b>{{c.item.Item_Name}}</b></th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+
+        <tr>
+            <td>{{c.item.Price}}</td>
+            <td>{{c.Quantity}}</td>
+            <td><b>{{c.Total_Price}}</b></td>
+        </tr>
+        <tr><td><a href="remove/{{c.id}}"><button>Remove</button></a></td></tr>
+
+        {% endfor %}
+    </table>
+
+        <hr><h5>Grand Total = {{g}}</h5><hr>
+    <form action="yourcart" method="post">
+{% csrf_token %}
+    <p>Expected time to reach at Shop
+    <input type="time" name="etime" required></p>
+        <p class="text-danger">Working Time: 3:30 pm to 6:30pm</p><hr>
+    <button type="submit" class="btn btn-success">PLACE ORDER</button>
+    <a href="homelogin"><input class="btn btn-secondary" value="Cancel"></a>
+
+</form>
+
+</div>
+</body>
+</html>

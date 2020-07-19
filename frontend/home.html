@@ -1,0 +1,100 @@
+<!Doctype html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="{% static 'hom.css' %}">
+</head>
+<body>
+
+<div id="main">
+    <div class="jumbo">
+    <h2 align="center" class="text-warning">{{d3}} Welcome to Our Home</h2><br>
+    <a href="#c1" ><h1 id="" align="center" style="color:white">&#9749 Lets Enjoy our coffee</h1></a>
+    </div>
+</div>
+
+<div  id="c1">
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a  href="r" class="nav-link text-warning">Register</a></li>
+        <li class="nav-item"><a href="l" class="nav-link text-warning">LogIn</a></li>
+        <li class="nav-item l"><a href="h" class="nav-link text-warning">About Us</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <form action="log" method="post">
+            {% csrf_token %}
+            <div class="container">
+            <div class="form-group">
+        <label>Username :</label>
+        <input type="text" class="form-control" name="username" required>
+        <label>Password :</label>
+        <input type="password" class="form-control" name="password" required>
+        <p class="text-danger">{{l}}</p>
+    </div>
+            <button class="btn btn-success" type="submit">Log In</button>
+             <p style="font-size:12px"><a href="r">New member? Create an account</a></p>
+        </div>
+</form>
+        </div>
+
+        <div class="col-lg-8 bg-dark">
+            <table title="Please login for ordering" class="table table-border">
+                <thead class="text-info">
+                <tr>
+                    <th>&#9749</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+                </thead>
+                {% for i in tab %}
+                <tbody class="text-warning">
+
+<form action="cart/{{i.id}}" method="post">
+    {% csrf_token%}
+
+
+                <tr>
+                    <td><img src="{{i.Image}}" height="200px" width="200px"></td>
+
+                    <td>{{i.Item_Name}}</td>
+
+                    <td>Rs.{{i.Price}}</td>
+
+                    <td><select name="qnty" class="bg-dark text-warning">
+                        {%for i in na%}
+                        <option value="{{i}}">{{i}}</option>
+                        {%endfor%}
+                    </select>
+                    </td>
+
+                    <td><input type="submit" value="ADD TO CART" class="btn btn-warning"></td>
+<!--                    <td><a href="cart/{{i.Price}}"><input type="button" class="btn btn-warning" value="OK"></a></td>-->
+                </tr>
+
+
+</form>
+
+                </tbody>
+                {%endfor%}
+            </table>
+
+        </div>
+    </div>
+
+</div>
+    </div>
+</body>
+</html>

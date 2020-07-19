@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+<div class="container" style="padding:80px">
+    <div align="left" style="margin-top:0px">
+        <a href="h"><span class="text-success"><b>Home</b></span></a>
+        <a href="customedit"><span style=" margin-left:30px" class="text-success">Edit profile</span></a>
+        <a href="myorder"><span style="color:green; margin-left:30px">My Orders</span></a>
+        <a href="logout"><span style="color:green; margin-left:30px">Logout</span></a></div>
+
+    <h2 align="center" style="color:green">My Profile</h2><br><hr>
+    <table style="color:seagreen" align="center" cellpadding="10px">
+        <tr><th>Name : </th><td>{{l.reg.Name}}</td></tr>
+        <tr><th>Email : </th><td>{{l.reg.Email}}</td></tr>
+        <tr><th>Date of Birth : </th><td>{{l.reg.DOB}}</td></tr>
+        <tr><th>Gender : </th><td>{{l.reg.Gender}}</td></tr>
+        <tr><th>Mobile No. : </th><td>{{l.reg.MobileNo}}</td></tr>
+        <tr><th>Username : </th><td>{{l.reg.Username}}</td></tr>
+        <tr><th>Password : </th><td>{{l.reg.Password}}</td></tr>
+    </table>
+</div>
+
+</body>
+</html>

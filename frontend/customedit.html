@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+<form action="customedited" method="post">
+    {% csrf_token %}
+<h2 align="center" style="color:green">My Profile</h2><br><hr>
+    <table style="color:seagreen" align="center" cellpadding="10px">
+        <tr><th>Name : </th><td><input type="text" value="{{l.reg.Name}}" name="name"></td></tr>
+        <tr><th>Email : </th><td><input type="text" value="{{l.reg.Email}}" name="email"></td></tr>
+        <tr><th>Date of Birth : </th><td><input type="date" value="{{d}}" name="dob"></td></tr>
+        <tr><th>Gender : </th><td>Male<input type="radio" name="gender" value="{{l.reg.Gender}}" required>Female<input type="radio" name="gender" value="female" required></td></tr>
+        <tr><th>Mobile No. : </th><td><input type="text" value="{{l.reg.MobileNo}}" name="mobile"></td></tr>
+        <tr><th>Username : </th><td><input type="text" value="{{l.reg.Username}}" name="user"></td></tr>
+        <tr><th>Password : </th><td><input type="text" value="{{l.reg.Password}}" name="psw"></td></tr>
+    </table>
+
+    <br><div align="center"><input type="submit" value="Save" class="btn btn-success">
+    <a href="myprofile"><input type="button" class="bg-secondary" value="cancel"></a></div>
+</form>
+
+</body>
+</html>

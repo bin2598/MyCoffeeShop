@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'hom.css' %}">
+</head>
+<body>
+<div id="main">
+<div align="center"><h6 class="text-warning">Hi {{d3|upper}} <br>Welcome to Our Home.   Order your coffee</h6></div>
+<!--<div style="padding:10px 0px 80px 60px"><img src="COFEE SHOP BG2.jpg" width="1400" height=""></div>-->
+    <a href="#c1" ><h1 id="b" align="center" style="color:white; paddin-top:10px;"><span>&#9749</span> Lets Enjoy our coffee</h1></a>
+</div>
+
+<nav class="navbar navbar-expand bg-dark" id="c1">
+    <ul class="navbar-nav">
+<!--        <li class="nav-item"><a href="homelogin" class="nav-link text-warning"><b>Home</b></a></li>-->
+        <li class="nav-item"><a href="myprofile" class="nav-link text-warning">My Profile</a></li>
+        <li class="nav-item"><a href="cartc" class="nav-link text-warning"><b>Cart <sup>({{count}})</sup></b></a></li>
+<!--        <li class="nav-item"><a href="myorder" class="nav-link text-warning">My Orders</a></li>-->
+<!--        <li class="nav-item"><a href="logout" class="nav-link text-warning">Logout</a></li>-->
+    </ul>
+</nav>
+
+
+<div class="container col-md-10">
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-5">
+            <table class="table table-border">
+                <thead class="text-info">
+                <tr>
+                    <th></th>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+                </thead>
+                {% for i in tab %}
+                <tbody class="text-warning">
+
+<form action="cart/{{i.id}}" method="post">
+    {% csrf_token%}
+
+
+                <tr>
+                    <td><img src="{{i.Image}}" height="300px" width="300px"></td>
+
+                    <td>{{i.Item_Name}}</td>
+
+                    <td>&#8377 {{i.Price}}</td>
+
+                    <td><select name="qnty" class="bg-dark text-warning">
+                        {%for i in na%}
+                        <option value="{{i}}">{{i}}</option>
+                        {%endfor%}
+                    </select>
+                    </td>
+
+                    <td><input type="submit" value="ADD TO CART" class="btn btn-warning"></td>
+<!--                    <td><a href="cart/{{i.Price}}"><input type="button" class="btn btn-warning" value="OK"></a></td>-->
+                </tr>
+
+</form>
+
+                </tbody>
+                {%endfor%}
+            </table>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

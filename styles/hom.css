@@ -1,0 +1,30 @@
+#main{
+        background-color:rgb(36, 73, 118, 0.9);
+        /*opacity:0.6;*/
+        margin:200px 200px 200px 300px;
+        height:200px; width:900px;
+        padding-bottom:10px
+    }
+
+nav{opacity:1.5;}
+
+/*a[href='r']{background-color:green;}*/
+
+.jumbo  {
+            margin:100px 100px 100px 100px
+        }
+
+.l:hover {
+          color:black;
+          background-color:white;
+         }
+
+th  {text-align:center;}
+tr:hover  {background-color:rgb(36, 73, 118);}
+
+
+    body {
+          background-image:url('COFEEE SHOP BG3.jpg');
+          /*background-repeat: no-repeat;*/
+          background-attachment:fixed;
+      }

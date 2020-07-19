@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="temp.css">
+</head>
+<body>
+<form action="t1" method="post">
+    {% csrf_token %}
+<!--<input type="checkbox" name="buy" value="1">-->
+<input type="time" name="name">
+    <input type="submit">
+    <select name="n">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+<!--    <p>{{tval}}</p>-->
+</form>
+<!--{% for i in ttab %}-->
+<!--<p>{{i.Item_Name}}</p>-->
+<!--{% endfor %}-->
+<!--<p>tval</p>-->
+
+<p>Date  :  {{d}}</p>
+<p>Time :  {{t}}</p>
+<p>{{n}}</p>
+<a href=https://www.google.com/maps/dir/8.534813,76.9066824/thrissur+coffee+shop/@8.5088313,76.144594,7.93z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ba7ee37ba8a69c7:0xe3378f672b083a2d!2m2!1d76.215245!2d10.516021">Click to see the map</a>
+</body>
+</html>

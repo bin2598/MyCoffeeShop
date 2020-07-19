@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <form action="editing/{{d.id}}" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Item Name :</label>
+            <input type="text" value="{{d.Item_Name}}" name="item">
+        </div>
+
+        <div class="form-group">
+        <label>Price :</label>
+        <input type="text" value="{{d.Price}}" name="price" required>
+        </div>
+
+        <div class="form-group">
+        <label>Upload Photo :</label>
+        <input type="file" name="img" value="{{d.Image}}">
+        </div>
+
+    <input type="submit" value="Done" class="btn btn-primary">
+    </form>
+  </div>
+</body>
+</html>

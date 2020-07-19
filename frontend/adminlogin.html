@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body style="background-color:#0D6A5B;">
+<h2 align="center">Admin's LogIn</h2>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+
+    <form action="adminlog" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            Username : <input type="text" name="username" placeholder="Enter your username">
+        </div>
+
+        <div class="form-group">
+            Password : <input type="password" name="psw" placeholder="Enter your password">
+        </div>
+        <p align="center" style="font-size:12px">{{m}}</p>
+
+        <input class="btn btn-primary" type="submit" value="Login">
+
+    </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>

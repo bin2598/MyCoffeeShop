@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'owner.css' %}">
+</head>
+<body>
+<!--<body style="background-image:url('COFEE SHOP BG2.jpg')">-->
+<h2 align="center">My Cofee Shop</h2>
+<div class="container col-lg-8">
+
+    <nav class="navbar navbar-expand-md col-lg-10">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-dark btn btn-outline-secondary" href="h">Go to Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-secondary" href="adadm">Add New Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-secondary" href="sadmin">See Names of Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-secondary" href="seecustom">See customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-secondary" href="neworder">New Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-sm btn-outline-secondary"  href="adminlogout">Logout       </a>
+            </li>
+
+        </ul>
+    </nav>
+<br><br>
+<form action="item" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr><td>
+    <div class="form-group">
+        <label>Item Name :</label>
+        <input type="text" class="form-control" name="item" required>
+    </div></td>
+    <td><div class="form-group">
+        <label>Price :</label>
+        <input type="text" class="form-control" name="price" required>
+    </div></td></tr>
+    <tr><td><div class="form-group">
+        <label>Upload Photo :</label>
+        <input type="file" name="img">
+    </div></td>
+        <td><button type="submit" class="btn btn-light" style="width:500px">Add</button></td></tr>
+    </table>
+</form>
+<br>
+
+<div class="row">
+
+<div class="col-lg-6">
+    <table class="table">
+                <thead>
+                <tr>
+                <th>{{admin}}</th>
+                    <th>{{email}}</th></tr>
+                </thead>
+
+            {% for i in u %}
+                <tbody style="color:white">
+                    <tr><td>{{i.first_name}} {{i.last_name}}</td>
+                        <td>{{i.email}}</td></tr>
+                </tbody>
+            {% endfor %}
+    </table>
+</div>
+
+
+
+
+<div class="col-lg-6">
+    <table class="table table-stripped">
+        <thead>
+            <tr><th colspan="6">Our Products</th></tr>
+            <tr>
+                <th></th>
+                <th>Items</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        {% for i in table %}
+        <tbody>
+            <tr>
+                <td><img src="{{i.Image}}" height="100px" width="100px"></td>
+                <td>{{i.Item_Name}}</td>
+                <td>{{i.Price}}</td>
+                <td><a href="edt/{{i.id}}"><button class="text-success btn btn-light" style="height:30px">Edit</button></a></td>
+                <td><a href="dlt/{{i.id}}"><button onclick="delfn()" class="text-danger btn btn-outline-light" style="height:30px">Delete</button></a></td>
+            </tr>
+        </tbody>
+            <script>
+                function delfun(){
+                confirm("do you want to delete ",{{i.Item_Name}}...Are you Sure?)
+                if (confirm() == ok){
+                }}
+            </script>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+</body>
+</html>

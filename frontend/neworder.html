@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="row">
+<div class="container col-md-6">
+    <h3>Today's Order</h3><hr>
+    <table class="table">
+    <thead>
+    <tr>
+        <th></th><th>Customer</th><th>Date & Time</th><th>Name</th><th>Unit Price</th><th>Quantity</th><th>TotalPrice</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in o %}
+
+    <tr><td><input type="checkbox"></td>
+    <td><b>{{i.reg.Name}}</b></td>
+    <td>{{i.Date}} {{i.Time}}</td>
+    <td><b>{{i.item.Item_Name}}</b></td>
+    <td>{{i.item.Price}}</td>
+    <td>{{i.Quantity}}</td>
+    <td>{{i.Total_Price}}</td>
+    <td><a href="bill/{{i.id}}"><button>Print Bill</button></a></td></tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="col-md-4">
+    <h4>Previous Orders</h4><hr>
+    <table>
+        <tr>
+            <th colspan="4">{{l.reg.Name}}</th></tr>
+        <tr>
+            <th>Items</th><th>Price</th><th>Qnty</th><th>Total</th><th>Customer</th>
+        </tr>
+
+            {% for i in order%}
+        {% if i.Date != d %}
+        <tr>
+            <td>{{i.item.Item_Name}}</td>
+            <td>{{i.item.Price}}</td>
+            <td>{{i.Quantity}}</td>
+            <td>{{i.Total_Price}}</td>
+            <td>{{i.Date}}</td>
+            <td>{{i.reg.Name}}</td>
+        </tr>
+        {% endif %}
+            {% endfor %}
+
+
+    </table>
+
+</div>
+</div>
+</body>
+</html>

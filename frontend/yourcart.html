@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-warning">
+<div style="margin:100px 300px 200px 200px; background-color:rgb(36, 73, 118, 0.5);">
+<form action="placed" method="post">
+    {% csrf_token %}
+<div class="container col-lg-5">
+    <h3 align="center">Your Order</h3>
+
+    <table class="table table-bordered text-light">
+        {% for i in o %}
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr>
+            <th rowspan="2">{{i.item.Item_Name}}</th> <th>Price</th> <th>Qnty</th> <th>Total</th>
+        </tr>
+        <tr>
+            <td>{{i.item.Price}}</td> <td>{{i.Quantity}}</td> <td>{{i.Total_Price}}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <h4 align="center">Grand Total = {{g}}</h4>
+</div>
+<div class="container col-md-5">
+    <ul type="circle">
+        <li class="text-info" style="font-size:20px"><b>Payment Method</b></li><hr>
+        <li><input class="text-success" type="radio" name="n" required>Cash on Delivery</input></li><hr>
+        <li><input type="radio" disabled="true" class="text-success" name="n">Net Banking <small class="text-danger">Not available now</small></input></li><hr>
+        <li><input type="radio" disabled="true" class="text-success" name="n1">Debit/Credit Card <small class="text-danger">Not available now</small></input></li>
+    </ul>
+</div>
+
+<div class="container col-md-5">
+    <input type="submit" class="btn btn-success" value="Confirm Order"/>
+    <a href="cartc"><input type="button" class="btn btn-sm btn-secondary" value="Cancel"></a>
+</div>
+</form>
+
+</div>
+</body>
+
+</html>

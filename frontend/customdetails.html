@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body style="background-color:#0D6A5B;">
+
+<div class="container col-sm-5">
+<h4 align="center" style="font-family:veranda">Details of customer</h4>
+
+<table class="table table-md">
+    <thead>
+    </thead>
+    {% for i in R%}
+
+    <tbody class="text-white">
+    <tr>
+        <td><b>Name :</b></td><td>{{i.Name}}</td></tr>
+        <tr><td><b>Email</b></td><td>{{i.Email}}</td></tr>
+        <tr><td><b>Mobile No :</b></td><td>{{i.MobileNo}}</td></tr>
+        <tr><td><b>Date of Birth :</b></td><td>{{i.DOB}}</td></tr>
+        <tr><td><b>Gender :</b></td><td>{{i.Gender}}</td></tr>
+        <tr><td><b>username :</b></td><td>{{i.Username}}</td>
+    <tr>
+    </tbody>
+</table>
+     <a target="_parent" class="text-white" href="corderdetails/{{i.id}}">Orders</a><br>
+{% endfor %}
+
+<!--<div class="col-md-6">-->
+<!--    <nav class="navbar-sm navbar-expand">-->
+<!--    <ul class="navbar-nav">-->
+<!--        {% for i in R%}-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link text-white" href="corderdetails/{{i.id}}">Orders-></a>-->
+<!--        </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</nav>-->
+<!--</div>-->
+
+
+    </div>
+</body>
+</html>
